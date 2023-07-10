@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#91A591"
+    android:padding="15dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="Image Encryption"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="#2B2B2B"
+        android:textSize="30sp"/>
+
+    <ImageView
+        android:id="@+id/main_IMG_image"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7"
+        android:background="@color/material_dynamic_neutral_variant50"
+        android:layout_margin="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/main_EDT_message"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:paddingStart="20dp"
+            android:textStyle="bold"
+            android:layout_marginEnd="20dp"
+            android:textColorHint="#3E3B3B"
+            android:textColor="#2B2B2B"
+            android:backgroundTint="@color/black"
+            android:hint="Enter Your Message"
+            android:layout_weight="3"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/main_BTN_encrypt"
+            android:layout_width="0dp"
+            android:backgroundTint="#009688"
+            android:textColor="#2B2B2B"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Encrypt"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/main_LBL_decryptedMessage"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:paddingStart="20dp"
+            android:outlineProvider="bounds"
+            android:layout_marginEnd="20dp"
+            android:textStyle="bold"
+            android:textColorHint="#3E3B3B"
+            android:textColor="#2B2B2B"
+            android:backgroundTint="@color/black"
+            android:clickable="false"
+            android:enabled="false"
+            android:hint="Decrypted Message"
+            android:layout_weight="3"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/main_BTN_decrypt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#009688"
+            android:textColor="#2B2B2B"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:text="Decrypt"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/main_BTN_gallery"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:backgroundTint="#009688"
+            android:textColor="#2B2B2B"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:text="Open Gallery" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/main_BTN_save"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:backgroundTint="#009688"
+            android:textColor="#2B2B2B"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:text="Save Image" />
+
+
+    </LinearLayout>
+
+</LinearLayout>
