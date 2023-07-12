@@ -8,5 +8,3 @@ The encryption method used in this application follows a technique known as Leas
 
 ## Demonstration video
 https://github.com/RonLulwi/imageEncryption/assets/95926852/95682c00-4ec0-445e-985d-20df5704fc14
-
-## U
