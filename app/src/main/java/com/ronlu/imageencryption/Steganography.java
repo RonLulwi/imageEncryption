@@ -1,8 +1,16 @@
 package com.ronlu.imageencryption;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-public class Steganography {
+import android.graphics.ImageDecoder;
+import android.net.Uri;
+import android.os.Build;
+import android.widget.ImageView;
+import android.widget.Toast;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+public abstract class Steganography {
     private static final int BITS_PER_BYTE = 8;
     public static Bitmap hideText(Bitmap originalImage, String text) {
         // Convert the text to binary representation
@@ -51,7 +59,6 @@ public class Steganography {
         }
         return modifiedImage;
     }
-
     public static String extractText(Bitmap modifiedImage) {
         StringBuilder binaryText = new StringBuilder();
 
@@ -89,7 +96,6 @@ public class Steganography {
         return extractedText.substring(0, i);
 
     }
-
     private static int modifyLSB(int channel, char bit) {
         if (bit == '0') {
             // Clear the LSB
@@ -99,8 +105,24 @@ public class Steganography {
             return channel | 0x01;
         }
     }
-
     private static int extractLSB(int channel) {
         return channel & 0x01;
     }
+    public static void decodeIMG(Context context, Uri Img, ImageView imageView) {
+        ImageDecoder.Source source = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P){
+            source = ImageDecoder.createSource(context.getContentResolver(),Img);
+            try {
+                Bitmap bitmap = ImageDecoder.decodeBitmap(source);
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG,100, stream);
+                imageView.setImageURI(Img);
+                Toast.makeText(context, "Image Selected", Toast.LENGTH_SHORT).show();
+            }catch (IOException e){
+                Toast.makeText(context, "Something Went Wrong, Please Try Again.", Toast.LENGTH_SHORT).show();
+                e.printStackTrace();
+            }
+        }
+    }
+
 }
