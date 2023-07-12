@@ -1,12 +1,9 @@
 package com.ronlu.imageencryption;
 
 import android.graphics.Bitmap;
-import android.util.Log;
 import android.graphics.Color;
 public class Steganography {
-
     private static final int BITS_PER_BYTE = 8;
-
     public static Bitmap hideText(Bitmap originalImage, String text) {
         // Convert the text to binary representation
         String msg = text + ",";
@@ -52,7 +49,6 @@ public class Steganography {
                 modifiedImage.setPixel(x, y, modifiedPixel);
             }
         }
-        Log.d("pttt", "modifiedImage");
         return modifiedImage;
     }
 
@@ -89,13 +85,9 @@ public class Steganography {
 
             extractedText.append(extractedChar);
         }
-        int langth = (int) extractedText.charAt(0);
         int i = extractedText.indexOf(",", 0);
-        Log.d("pttt", "i= " +i);
-        String s = extractedText.substring(0, i);
-        Log.d("pttt", "S= "+ s);
-        return s;
-        //return extractedText.toString();
+        return extractedText.substring(0, i);
+
     }
 
     private static int modifyLSB(int channel, char bit) {
@@ -112,6 +104,3 @@ public class Steganography {
         return channel & 0x01;
     }
 }
-
-//Log.d("pttt", "modifiedImage");
-//Log.d("pttt", extractedText.toString());

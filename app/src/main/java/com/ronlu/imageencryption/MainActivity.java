@@ -8,7 +8,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -24,10 +23,8 @@ import android.os.Environment;
 import android.provider.Settings;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
-
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -80,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "You must upload an image first!", Toast.LENGTH_SHORT).show();
             return;
         }
-
         // Get the system's current time to use it as the image's filename
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
 
